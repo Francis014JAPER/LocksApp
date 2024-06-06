@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { observer } from 'mobx-react-lite';
 import { View, Text, FlatList, Button } from 'react-native';
-import lockViewModel from '../viewmodels/LockViewModel';
+import lockViewModel from '../viewmodels/LocksViewModel';
 
 const HomeScreen = observer(({ navigation }) => {
   useEffect(() => {

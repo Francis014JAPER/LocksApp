@@ -1,11 +1,10 @@
+// src/models/Lock.js
 class Lock {
-    constructor(id, name, photo, isActive) {
-      this.id = id;
-      this.name = name;
-      this.photo = photo;
-      this.isActive = isActive;
-    }
+  constructor(id, name, description) {
+    this.id = id;
+    this.name = name;
+    this.description = description;
   }
-  
-  export default Lock;
-  
+}
+
+export default Lock;

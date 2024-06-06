@@ -8,10 +8,24 @@ const port = 3000;
 app.use(cors());
 app.use(express.json());
 
-mongoose.connect('mongodb+srv://Javier:12345678*@javiercortez.ajfwqmp.mongodb.net/?retryWrites=true&w=majority&appName=JavierCortez', {
+// Configuración de la conexión a MongoDB Atlas
+const mongoURI = 'mongodb+srv://Javier:12345678*@javiercortez.ajfwqmp.mongodb.net/?retryWrites=true&w=majority&appName=JavierCortez';
+
+mongoose.connect(mongoURI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
-});
+})
+  .then(() => {
+    console.log('Conexión exitosa a MongoDB Atlas');
+    // Iniciar el servidor solo después de establecer la conexión
+    app.listen(port, () => {
+      console.log(`Server running at http://localhost:${port}`);
+    });
+  })
+  .catch(err => {
+    console.error('Error de conexión a MongoDB Atlas:', err);
+  });
+
 
 
 const lockSchema = new mongoose.Schema({
